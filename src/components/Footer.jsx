@@ -1,4 +1,4 @@
-const WA_LINK = "https://wa.me/919999999999?text=Hi%2C%20I%20want%20to%20know%20more%20about%20ApplyKaro";
+const WA_LINK = "https://wa.me/916392791608?text=Hi%2C%20I%20want%20to%20know%20more%20about%20ApplyKaro";
 
 export default function Footer() {
   return (

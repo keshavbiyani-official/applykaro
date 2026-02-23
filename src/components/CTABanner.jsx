@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-const WA_LINK = "https://wa.me/919999999999?text=Hi%2C%20I%20want%20to%20start%20with%20ApplyKaro";
+const WA_LINK = "https://wa.me/916392791608?text=Hi%2C%20I%20want%20to%20start%20with%20ApplyKaro";
 
 export default function CTABanner() {
   const ref = useRef();

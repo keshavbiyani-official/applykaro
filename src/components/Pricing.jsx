@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-const WA = (msg) => `https://wa.me/919999999999?text=${encodeURIComponent(msg)}`;
+const WA = (msg) => `https://wa.me/916392791608?text=${encodeURIComponent(msg)}`;
 
 const PLANS = [
   {
