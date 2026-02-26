@@ -107,9 +107,8 @@ function Navbar({ menuOpen, setMenuOpen }) {
     <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: scrolled ? "rgba(10,10,10,0.95)" : "transparent", backdropFilter: scrolled ? "blur(12px)" : "none", borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "none", transition: "all 0.3s ease", padding: "0 1.5rem" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 }}>
         {/* Logo */}
-        <a href="#" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
-          <div style={{ width: 36, height: 36, background: "#F97316", borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 900, fontSize: 18, color: "#fff", fontFamily: "serif" }}>A</div>
-          <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 20, color: "#fff", letterSpacing: "-0.02em" }}>Apply<span style={{ color: "#F97316" }}>Karo</span></span>
+        <a href="#" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
+          <img src="/logo.png" alt="ApplyKaro" style={{ height: 38, width: "auto" }} />
         </a>
 
         {/* Desktop links */}
@@ -511,10 +510,9 @@ function Footer() {
   return (
     <footer style={{ borderTop: "1px solid rgba(255,255,255,0.07)", padding: "32px 1.5rem", textAlign: "center" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <div style={{ width: 30, height: 30, background: "#F97316", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 900, fontSize: 14, color: "#fff" }}>A</div>
-          <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 16, color: "#fff" }}>Apply<span style={{ color: "#F97316" }}>Karo</span></span>
-        </div>
+        <a href="#" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
+          <img src="/logo.png" alt="ApplyKaro" style={{ height: 30, width: "auto" }} />
+        </a>
         <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.35)" }}>Built in India, for India. © 2025 ApplyKaro.</span>
         <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "#F97316", textDecoration: "none", fontWeight: 600 }}>💬 WhatsApp us</a>
       </div>
