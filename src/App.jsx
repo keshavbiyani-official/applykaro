@@ -107,19 +107,30 @@ function Navbar({ menuOpen, setMenuOpen }) {
     <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: scrolled ? "rgba(10,10,10,0.95)" : "transparent", backdropFilter: scrolled ? "blur(12px)" : "none", borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "none", transition: "all 0.3s ease", padding: "0 1.5rem" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 }}>
         {/* Logo */}
-        <a href="#" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
-          <img src="/logo.png" alt="ApplyKaro" style={{ height: 38, width: "auto" }} />
+        <a href="#" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
+          {/* Unique mark: bold "A" with an upward arrow slicing through it */}
+          <div style={{ width: 34, height: 34, background: "#F97316", borderRadius: 9, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              {/* Arrow pointing up-right — the "apply" motion */}
+              <path d="M5 15 L15 5" stroke="#fff" strokeWidth="2.2" strokeLinecap="round"/>
+              <path d="M8 5 H15 V12" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          {/* Wordmark: Apply white, Karo orange */}
+          <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800, fontSize: 20, letterSpacing: "-0.03em" }}>
+            <span style={{ color: "#fff" }}>Apply</span><span style={{ color: "#F97316" }}>Karo</span>
+          </span>
         </a>
 
         {/* Desktop links */}
         <div style={{ display: "flex", alignItems: "center", gap: 32, "@media(max-width:768px)": { display: "none" } }} className="desktop-nav">
           {NAV_LINKS.map(l => (
-            <a key={l} href={`#${l.toLowerCase().replace(/ /g, "-")}`} style={{ color: "rgba(255,255,255,0.65)", textDecoration: "none", fontSize: 14, fontWeight: 500, fontFamily: "'DM Sans', sans-serif", transition: "color 0.2s", letterSpacing: "0.01em" }}
+            <a key={l} href={`#${l.toLowerCase().replace(/ /g, "-")}`} style={{ color: "rgba(255,255,255,0.65)", textDecoration: "none", fontSize: 14, fontWeight: 500, fontFamily: "'Outfit', sans-serif", transition: "color 0.2s", letterSpacing: "0.01em" }}
               onMouseEnter={e => e.target.style.color = "#fff"} onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.65)"}>
               {l}
             </a>
           ))}
-          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" style={{ background: "#F97316", color: "#fff", padding: "9px 20px", borderRadius: 8, textDecoration: "none", fontWeight: 700, fontSize: 14, fontFamily: "'DM Sans', sans-serif", transition: "transform 0.15s, box-shadow 0.15s", display: "inline-block" }}
+          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" style={{ background: "#F97316", color: "#fff", padding: "9px 20px", borderRadius: 8, textDecoration: "none", fontWeight: 700, fontSize: 14, fontFamily: "'Outfit', sans-serif", transition: "transform 0.15s, box-shadow 0.15s", display: "inline-block" }}
             onMouseEnter={e => { e.target.style.transform = "scale(1.04)"; e.target.style.boxShadow = "0 0 20px rgba(249,115,22,0.4)"; }}
             onMouseLeave={e => { e.target.style.transform = "scale(1)"; e.target.style.boxShadow = "none"; }}>
             Start on WhatsApp
@@ -141,12 +152,12 @@ function Navbar({ menuOpen, setMenuOpen }) {
         <div style={{ background: "rgba(10,10,10,0.98)", borderTop: "1px solid rgba(255,255,255,0.08)", padding: "1rem 1.5rem 1.5rem" }}>
           {NAV_LINKS.map(l => (
             <a key={l} href={`#${l.toLowerCase().replace(/ /g, "-")}`} onClick={() => setMenuOpen(false)}
-              style={{ display: "block", color: "rgba(255,255,255,0.8)", textDecoration: "none", padding: "12px 0", fontSize: 16, fontWeight: 500, fontFamily: "'DM Sans', sans-serif", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+              style={{ display: "block", color: "rgba(255,255,255,0.8)", textDecoration: "none", padding: "12px 0", fontSize: 16, fontWeight: 500, fontFamily: "'Outfit', sans-serif", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
               {l}
             </a>
           ))}
           <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" onClick={() => setMenuOpen(false)}
-            style={{ display: "block", background: "#F97316", color: "#fff", padding: "14px 20px", borderRadius: 10, textDecoration: "none", fontWeight: 700, fontSize: 16, fontFamily: "'DM Sans', sans-serif", textAlign: "center", marginTop: 16 }}>
+            style={{ display: "block", background: "#F97316", color: "#fff", padding: "14px 20px", borderRadius: 10, textDecoration: "none", fontWeight: 700, fontSize: 16, fontFamily: "'Outfit', sans-serif", textAlign: "center", marginTop: 16 }}>
             Start on WhatsApp 💬
           </a>
         </div>
@@ -169,31 +180,31 @@ function Hero() {
         {/* Badge */}
         <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(249,115,22,0.12)", border: "1px solid rgba(249,115,22,0.3)", borderRadius: 100, padding: "6px 16px", marginBottom: 32 }}>
           <span style={{ width: 7, height: 7, background: "#F97316", borderRadius: "50%", animation: "pulse 2s infinite", display: "inline-block" }} />
-          <span style={{ color: "#F97316", fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: 13, letterSpacing: "0.08em", textTransform: "uppercase" }}>Now accepting beta users — limited slots</span>
+          <span style={{ color: "#F97316", fontFamily: "'Outfit', sans-serif", fontWeight: 600, fontSize: 13, letterSpacing: "0.08em", textTransform: "uppercase" }}>Now accepting beta users — limited slots</span>
         </div>
 
         {/* Headline */}
-        <h1 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, fontSize: "clamp(3.5rem, 9vw, 7rem)", lineHeight: 1.0, color: "#fff", margin: "0 0 16px", letterSpacing: "-0.01em" }}>
+        <h1 style={{ fontFamily: "'Bebas Neue', sans-serif", fontWeight: 900, fontSize: "clamp(3.5rem, 9vw, 7rem)", lineHeight: 1.0, color: "#fff", margin: "0 0 16px", letterSpacing: "0.04em" }}>
           Stop Filling<br />Job Forms.
         </h1>
-        <h1 style={{ fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontWeight: 700, fontSize: "clamp(2.8rem, 7.5vw, 5.5rem)", lineHeight: 1.0, color: "#F97316", margin: "0 0 32px", letterSpacing: "-0.02em" }}>
+        <h1 style={{ fontFamily: "'Libre Baskerville', serif", fontStyle: "italic", fontWeight: 700, fontSize: "clamp(2.8rem, 7.5vw, 5.5rem)", lineHeight: 1.0, color: "#F97316", margin: "0 0 32px", letterSpacing: "-0.02em" }}>
           We'll Do It.
         </h1>
 
-        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "clamp(1rem, 2.5vw, 1.2rem)", lineHeight: 1.7, color: "rgba(255,255,255,0.65)", maxWidth: 560, margin: "0 auto 44px", fontWeight: 400 }}>
+        <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: "clamp(1rem, 2.5vw, 1.2rem)", lineHeight: 1.7, color: "rgba(255,255,255,0.65)", maxWidth: 560, margin: "0 auto 44px", fontWeight: 400 }}>
           Real humans apply to 100+ jobs on your behalf — with custom resumes and personalised cover letters. Built for IIT, NIT, VIT, BITS students and Indian professionals.
         </p>
 
         {/* CTAs */}
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
           <a href={WHATSAPP_URL} target="_blank" rel="noreferrer"
-            style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "#F97316", color: "#fff", padding: "16px 32px", borderRadius: 12, textDecoration: "none", fontWeight: 700, fontSize: 17, fontFamily: "'DM Sans', sans-serif", transition: "all 0.2s", boxShadow: "0 4px 24px rgba(249,115,22,0.35)" }}
+            style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "#F97316", color: "#fff", padding: "16px 32px", borderRadius: 12, textDecoration: "none", fontWeight: 700, fontSize: 17, fontFamily: "'Outfit', sans-serif", transition: "all 0.2s", boxShadow: "0 4px 24px rgba(249,115,22,0.35)" }}
             onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 32px rgba(249,115,22,0.5)"; }}
             onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 4px 24px rgba(249,115,22,0.35)"; }}>
             💬 Start on WhatsApp
           </a>
           <a href="#how-it-works"
-            style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "transparent", color: "#fff", padding: "16px 32px", borderRadius: 12, textDecoration: "none", fontWeight: 600, fontSize: 17, fontFamily: "'DM Sans', sans-serif", border: "1px solid rgba(255,255,255,0.18)", transition: "all 0.2s" }}
+            style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "transparent", color: "#fff", padding: "16px 32px", borderRadius: 12, textDecoration: "none", fontWeight: 600, fontSize: 17, fontFamily: "'Outfit', sans-serif", border: "1px solid rgba(255,255,255,0.18)", transition: "all 0.2s" }}
             onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.4)"; e.currentTarget.style.background = "rgba(255,255,255,0.05)"; }}
             onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.18)"; e.currentTarget.style.background = "transparent"; }}>
             See how it works ↓
@@ -204,8 +215,8 @@ function Hero() {
         <div style={{ display: "flex", gap: 0, justifyContent: "center", marginTop: 60, flexWrap: "wrap" }}>
           {[["Now open", "Beta cohort"], ["24 hours", "Turnaround"], ["All types", "Portals covered"], ["Screenshot", "Proof per app"]].map(([bold, light], i) => (
             <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "0 28px", borderRight: i < 3 ? "1px solid rgba(255,255,255,0.1)" : "none" }}>
-              <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 16, color: "#F97316" }}>{bold}</span>
-              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.5)", marginTop: 2 }}>{light}</span>
+              <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontWeight: 700, fontSize: 16, color: "#F97316" }}>{bold}</span>
+              <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.5)", marginTop: 2 }}>{light}</span>
             </div>
           ))}
         </div>
@@ -220,7 +231,7 @@ function Ticker() {
     <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "14px 0", overflow: "hidden", background: "rgba(249,115,22,0.04)" }}>
       <div style={{ display: "flex", animation: "ticker 30s linear infinite", width: "max-content", gap: 48 }}>
         {doubled.map((item, i) => (
-          <span key={i} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, fontWeight: 600, color: "rgba(255,255,255,0.7)", whiteSpace: "nowrap", letterSpacing: "0.02em" }}>
+          <span key={i} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, fontWeight: 600, color: "rgba(255,255,255,0.7)", whiteSpace: "nowrap", letterSpacing: "0.02em" }}>
             <span style={{ color: "#F97316", marginRight: 8 }}>●</span>{item}
           </span>
         ))}
@@ -234,11 +245,11 @@ function HowItWorks() {
     <section id="how-it-works" style={{ padding: "100px 1.5rem", maxWidth: 1200, margin: "0 auto" }}>
       <FadeIn>
         <div style={{ marginBottom: 64 }}>
-          <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 12, color: "#F97316", letterSpacing: "0.12em", textTransform: "uppercase" }}>The Process</span>
-          <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "#fff", margin: "12px 0 16px", letterSpacing: "-0.01em", lineHeight: 1.1 }}>
+          <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: 12, color: "#F97316", letterSpacing: "0.12em", textTransform: "uppercase" }}>The Process</span>
+          <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "#fff", margin: "12px 0 16px", letterSpacing: "0.04em", lineHeight: 1.1 }}>
             From onboarding to<br />interview calls in days
           </h2>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 17, color: "rgba(255,255,255,0.55)", maxWidth: 460, lineHeight: 1.7 }}>
+          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 17, color: "rgba(255,255,255,0.55)", maxWidth: 460, lineHeight: 1.7 }}>
             We handle the entire application process. You focus on what actually matters — interview prep.
           </p>
         </div>
@@ -250,10 +261,10 @@ function HowItWorks() {
             <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 20, padding: "32px 28px", position: "relative", overflow: "hidden", transition: "border-color 0.3s, transform 0.3s" }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(249,115,22,0.3)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; e.currentTarget.style.transform = "translateY(0)"; }}>
-              <div style={{ position: "absolute", top: 20, right: 24, fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 48, color: "rgba(255,255,255,0.04)", lineHeight: 1 }}>{step.num}</div>
+              <div style={{ position: "absolute", top: 20, right: 24, fontFamily: "'Bebas Neue', sans-serif", fontWeight: 800, fontSize: 48, color: "rgba(255,255,255,0.04)", lineHeight: 1 }}>{step.num}</div>
               <div style={{ fontSize: 32, marginBottom: 16 }}>{step.icon}</div>
-              <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 18, color: "#fff", margin: "0 0 10px", letterSpacing: "-0.01em" }}>{step.title}</h3>
-              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 15, color: "rgba(255,255,255,0.55)", lineHeight: 1.7, margin: 0 }}>{step.desc}</p>
+              <h3 style={{ fontFamily: "'Bebas Neue', sans-serif", fontWeight: 700, fontSize: 18, color: "#fff", margin: "0 0 10px", letterSpacing: "0.04em" }}>{step.title}</h3>
+              <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, color: "rgba(255,255,255,0.55)", lineHeight: 1.7, margin: 0 }}>{step.desc}</p>
             </div>
           </FadeIn>
         ))}
@@ -268,8 +279,8 @@ function VSSection() {
       <div style={{ maxWidth: 900, margin: "0 auto" }}>
         <FadeIn>
           <div style={{ textAlign: "center", marginBottom: 56 }}>
-            <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 12, color: "#F97316", letterSpacing: "0.12em", textTransform: "uppercase" }}>The Problem With AI Auto-Apply</span>
-            <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "clamp(1.8rem, 4.5vw, 3rem)", color: "#fff", margin: "12px 0 0", letterSpacing: "-0.01em" }}>Recruiters can spot AI spam instantly.<br /><span style={{ color: "#F97316" }}>We don't send spam.</span></h2>
+            <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: 12, color: "#F97316", letterSpacing: "0.12em", textTransform: "uppercase" }}>The Problem With AI Auto-Apply</span>
+            <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontWeight: 800, fontSize: "clamp(1.8rem, 4.5vw, 3rem)", color: "#fff", margin: "12px 0 0", letterSpacing: "0.04em" }}>Recruiters can spot AI spam instantly.<br /><span style={{ color: "#F97316" }}>We don't send spam.</span></h2>
           </div>
         </FadeIn>
 
@@ -277,11 +288,11 @@ function VSSection() {
           {/* AI side */}
           <FadeIn delay={0.1}>
             <div style={{ background: "rgba(255,50,50,0.04)", border: "1px solid rgba(255,50,50,0.15)", borderRadius: 20, padding: "28px 24px" }}>
-              <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 18, color: "#f87171", marginBottom: 20 }}>😵 AI Auto-Apply Tools</div>
+              <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontWeight: 800, fontSize: 18, color: "#f87171", marginBottom: 20 }}>😵 AI Auto-Apply Tools</div>
               {["Skips Workday, Taleo, iCIMS — that's 70% of serious jobs", "Sends identical applications to every company", "Gets flagged as bot traffic on enterprise portals", "No cover letters, no customisation, no judgment", "Competes in the same pool as 10,000 other AI users", "Zero proof of what was actually submitted"].map((item, i) => (
                 <div key={i} style={{ display: "flex", gap: 12, marginBottom: 12, alignItems: "flex-start" }}>
                   <span style={{ color: "#f87171", fontSize: 15, flexShrink: 0, marginTop: 2 }}>✗</span>
-                  <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.6)", lineHeight: 1.5 }}>{item}</span>
+                  <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.6)", lineHeight: 1.5 }}>{item}</span>
                 </div>
               ))}
             </div>
@@ -290,11 +301,11 @@ function VSSection() {
           {/* Us */}
           <FadeIn delay={0.2}>
             <div style={{ background: "rgba(249,115,22,0.06)", border: "1px solid rgba(249,115,22,0.25)", borderRadius: 20, padding: "28px 24px" }}>
-              <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 18, color: "#F97316", marginBottom: 20 }}>🎯 ApplyKaro</div>
+              <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontWeight: 800, fontSize: 18, color: "#F97316", marginBottom: 20 }}>🎯 ApplyKaro</div>
               {["Manually navigates every portal including Workday and Taleo", "Custom resume variant per job category", "Real human = zero bot flags, zero rejections at form stage", "Personalised cover letter referencing each company", "WhatsApp screenshot proof of every single submission", "Pro-rata refund if you get placed before credits run out"].map((item, i) => (
                 <div key={i} style={{ display: "flex", gap: 12, marginBottom: 12, alignItems: "flex-start" }}>
                   <span style={{ color: "#F97316", fontSize: 15, flexShrink: 0, marginTop: 2 }}>✓</span>
-                  <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.75)", lineHeight: 1.5 }}>{item}</span>
+                  <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.75)", lineHeight: 1.5 }}>{item}</span>
                 </div>
               ))}
             </div>
@@ -311,8 +322,8 @@ function ComparisonTable() {
       <div style={{ maxWidth: 900, margin: "0 auto" }}>
         <FadeIn>
           <div style={{ textAlign: "center", marginBottom: 48 }}>
-            <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 12, color: "#F97316", letterSpacing: "0.12em", textTransform: "uppercase" }}>Full Comparison</span>
-            <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "clamp(1.8rem, 4vw, 2.8rem)", color: "#fff", margin: "12px 0 0", letterSpacing: "-0.01em" }}>Smarter than going alone.</h2>
+            <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: 12, color: "#F97316", letterSpacing: "0.12em", textTransform: "uppercase" }}>Full Comparison</span>
+            <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontWeight: 800, fontSize: "clamp(1.8rem, 4vw, 2.8rem)", color: "#fff", margin: "12px 0 0", letterSpacing: "0.04em" }}>Smarter than going alone.</h2>
           </div>
         </FadeIn>
         <FadeIn delay={0.1}>
@@ -320,18 +331,18 @@ function ComparisonTable() {
             <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 560 }}>
               <thead>
                 <tr style={{ background: "rgba(255,255,255,0.04)" }}>
-                  <th style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: 13, color: "rgba(255,255,255,0.5)", padding: "16px 20px", textAlign: "left", letterSpacing: "0.04em", textTransform: "uppercase" }}>What You Get</th>
+                  <th style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 600, fontSize: 13, color: "rgba(255,255,255,0.5)", padding: "16px 20px", textAlign: "left", letterSpacing: "0.04em", textTransform: "uppercase" }}>What You Get</th>
                   {["Solo 😵", "AI Auto-Apply 🤖", "Consultants 💸", "ApplyKaro 🎯"].map((h, i) => (
-                    <th key={i} style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 13, color: i === 3 ? "#F97316" : "rgba(255,255,255,0.7)", padding: "16px 16px", textAlign: "center", background: i === 3 ? "rgba(249,115,22,0.08)" : "none" }}>{h}</th>
+                    <th key={i} style={{ fontFamily: "'Bebas Neue', sans-serif", fontWeight: 700, fontSize: 13, color: i === 3 ? "#F97316" : "rgba(255,255,255,0.7)", padding: "16px 16px", textAlign: "center", background: i === 3 ? "rgba(249,115,22,0.08)" : "none" }}>{h}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
                 {COMPARISON_ROWS.map((row, i) => (
                   <tr key={i} style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-                    <td style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.7)", padding: "14px 20px", fontWeight: 500 }}>{row.label}</td>
+                    <td style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.7)", padding: "14px 20px", fontWeight: 500 }}>{row.label}</td>
                     {[row.solo, row.ai, row.consult, row.us].map((val, j) => (
-                      <td key={j} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: j === 3 ? "#fff" : (val.startsWith("✗") ? "#f87171" : "rgba(255,255,255,0.55)"), padding: "14px 16px", textAlign: "center", background: j === 3 ? "rgba(249,115,22,0.05)" : "none", fontWeight: j === 3 ? 600 : 400 }}>{val}</td>
+                      <td key={j} style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: j === 3 ? "#fff" : (val.startsWith("✗") ? "#f87171" : "rgba(255,255,255,0.55)"), padding: "14px 16px", textAlign: "center", background: j === 3 ? "rgba(249,115,22,0.05)" : "none", fontWeight: j === 3 ? 600 : 400 }}>{val}</td>
                     ))}
                   </tr>
                 ))}
@@ -350,9 +361,9 @@ function Pricing() {
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <FadeIn>
           <div style={{ textAlign: "center", marginBottom: 16 }}>
-            <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 12, color: "#F97316", letterSpacing: "0.12em", textTransform: "uppercase" }}>Pricing</span>
-            <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.2rem)", color: "#fff", margin: "12px 0 12px", letterSpacing: "-0.01em" }}>One-time payment.<br />No monthly traps.</h2>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 16, color: "rgba(255,255,255,0.5)", maxWidth: 480, margin: "0 auto" }}>Buy a block of applications. Use them over 30–90 days. Get a pro-rata refund on unused credits if you land a job early.</p>
+            <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: 12, color: "#F97316", letterSpacing: "0.12em", textTransform: "uppercase" }}>Pricing</span>
+            <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.2rem)", color: "#fff", margin: "12px 0 12px", letterSpacing: "0.04em" }}>One-time payment.<br />No monthly traps.</h2>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 16, color: "rgba(255,255,255,0.5)", maxWidth: 480, margin: "0 auto" }}>Buy a block of applications. Use them over 30–90 days. Get a pro-rata refund on unused credits if you land a job early.</p>
           </div>
         </FadeIn>
 
@@ -363,26 +374,26 @@ function Pricing() {
                 onMouseEnter={e => e.currentTarget.style.transform = "translateY(-4px)"}
                 onMouseLeave={e => e.currentTarget.style.transform = "translateY(0)"}>
                 {plan.tag && (
-                  <div style={{ position: "absolute", top: -13, left: "50%", transform: "translateX(-50%)", background: "#F97316", color: "#fff", padding: "4px 16px", borderRadius: 100, fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 12, whiteSpace: "nowrap" }}>{plan.tag}</div>
+                  <div style={{ position: "absolute", top: -13, left: "50%", transform: "translateX(-50%)", background: "#F97316", color: "#fff", padding: "4px 16px", borderRadius: 100, fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: 12, whiteSpace: "nowrap" }}>{plan.tag}</div>
                 )}
                 <div style={{ marginBottom: 4 }}>
-                  <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: 13, color: plan.highlight ? "#F97316" : "rgba(255,255,255,0.5)", letterSpacing: "0.06em", textTransform: "uppercase" }}>{plan.name}</span>
+                  <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 600, fontSize: 13, color: plan.highlight ? "#F97316" : "rgba(255,255,255,0.5)", letterSpacing: "0.06em", textTransform: "uppercase" }}>{plan.name}</span>
                 </div>
-                <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 52, color: "#fff", letterSpacing: "-0.01em", lineHeight: 1, margin: "8px 0 4px" }}>{plan.price}</div>
-                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.5)", marginBottom: 4 }}>{plan.apps}</div>
-                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.4)", marginBottom: 28 }}>{plan.sub}</div>
+                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontWeight: 800, fontSize: 52, color: "#fff", letterSpacing: "0.04em", lineHeight: 1, margin: "8px 0 4px" }}>{plan.price}</div>
+                <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.5)", marginBottom: 4 }}>{plan.apps}</div>
+                <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.4)", marginBottom: 28 }}>{plan.sub}</div>
 
                 <div style={{ flex: 1 }}>
                   {plan.features.map((f, j) => (
                     <div key={j} style={{ display: "flex", gap: 10, marginBottom: 10, alignItems: "flex-start" }}>
                       <span style={{ color: "#F97316", fontSize: 14, flexShrink: 0, marginTop: 2 }}>✓</span>
-                      <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.7)", lineHeight: 1.5 }}>{f}</span>
+                      <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.7)", lineHeight: 1.5 }}>{f}</span>
                     </div>
                   ))}
                 </div>
 
                 <a href={WHATSAPP_URL} target="_blank" rel="noreferrer"
-                  style={{ display: "block", textAlign: "center", marginTop: 28, padding: "14px 24px", borderRadius: 12, background: plan.highlight ? "#F97316" : "transparent", border: `1px solid ${plan.highlight ? "#F97316" : "rgba(255,255,255,0.2)"}`, color: "#fff", textDecoration: "none", fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 15, transition: "all 0.2s" }}
+                  style={{ display: "block", textAlign: "center", marginTop: 28, padding: "14px 24px", borderRadius: 12, background: plan.highlight ? "#F97316" : "transparent", border: `1px solid ${plan.highlight ? "#F97316" : "rgba(255,255,255,0.2)"}`, color: "#fff", textDecoration: "none", fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: 15, transition: "all 0.2s" }}
                   onMouseEnter={e => { if (!plan.highlight) { e.currentTarget.style.background = "rgba(249,115,22,0.1)"; e.currentTarget.style.borderColor = "rgba(249,115,22,0.4)"; } else { e.currentTarget.style.boxShadow = "0 4px 20px rgba(249,115,22,0.4)"; } }}
                   onMouseLeave={e => { if (!plan.highlight) { e.currentTarget.style.background = "transparent"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; } else { e.currentTarget.style.boxShadow = "none"; } }}>
                   {plan.cta}
@@ -394,7 +405,7 @@ function Pricing() {
 
         <FadeIn delay={0.3}>
           <div style={{ textAlign: "center", marginTop: 32, padding: "20px 24px", background: "rgba(249,115,22,0.06)", border: "1px solid rgba(249,115,22,0.2)", borderRadius: 16, maxWidth: 620, margin: "32px auto 0" }}>
-            <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.65)", lineHeight: 1.6 }}>
+            <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.65)", lineHeight: 1.6 }}>
               💡 <strong style={{ color: "#F97316" }}>Refund Policy:</strong> If you get placed before using all your credits, we refund the unused portion — pro-rata, no questions asked. This is real. It's how we stay accountable.
             </span>
           </div>
@@ -410,30 +421,30 @@ function OurStory() {
       <div style={{ maxWidth: 900, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 40, alignItems: "center" }}>
         <FadeIn>
           <div>
-            <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 12, color: "#F97316", letterSpacing: "0.12em", textTransform: "uppercase" }}>Our Story</span>
-            <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "clamp(1.8rem, 4vw, 2.8rem)", color: "#fff", margin: "12px 0 20px", letterSpacing: "-0.01em", lineHeight: 1.15 }}>Built by students who<br />lived this problem.</h2>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 15, color: "rgba(255,255,255,0.6)", lineHeight: 1.8, marginBottom: 16 }}>
+            <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: 12, color: "#F97316", letterSpacing: "0.12em", textTransform: "uppercase" }}>Our Story</span>
+            <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontWeight: 800, fontSize: "clamp(1.8rem, 4vw, 2.8rem)", color: "#fff", margin: "12px 0 20px", letterSpacing: "0.04em", lineHeight: 1.15 }}>Built by students who<br />lived this problem.</h2>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, color: "rgba(255,255,255,0.6)", lineHeight: 1.8, marginBottom: 16 }}>
               4th year of engineering. Placement season. 50 company forms to fill, DSA to practice, mock interviews to prep for. Every evening spent clicking "Apply" on portals that eat 20 minutes each.
             </p>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 15, color: "rgba(255,255,255,0.6)", lineHeight: 1.8, marginBottom: 0 }}>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 15, color: "rgba(255,255,255,0.6)", lineHeight: 1.8, marginBottom: 0 }}>
               We built ApplyKaro because the time you spend on job forms is time stolen from interview prep — which is what actually determines whether you get the offer.
             </p>
           </div>
         </FadeIn>
         <FadeIn delay={0.15}>
           <div style={{ background: "rgba(249,115,22,0.06)", border: "1px solid rgba(249,115,22,0.2)", borderRadius: 24, padding: "36px 32px" }}>
-            <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, fontWeight: 700, color: "#F97316", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 20 }}>From the Founder</div>
-            <blockquote style={{ fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontSize: 22, color: "#fff", lineHeight: 1.5, margin: "0 0 24px", borderLeft: "3px solid #F97316", paddingLeft: 20 }}>
+            <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, fontWeight: 700, color: "#F97316", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 20 }}>From the Founder</div>
+            <blockquote style={{ fontFamily: "'Libre Baskerville', serif", fontStyle: "italic", fontSize: 22, color: "#fff", lineHeight: 1.5, margin: "0 0 24px", borderLeft: "3px solid #F97316", paddingLeft: 20 }}>
               "Placement season shouldn't cost you 3 months of your life."
             </blockquote>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.6)", lineHeight: 1.7, marginBottom: 24 }}>
+            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.6)", lineHeight: 1.7, marginBottom: 24 }}>
               Every student I knew was spending 3–4 hours a day just filling forms. That's time that should go into DSA, system design, mock interviews — the things that actually matter when you're in the room.
             </p>
             <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-              <div style={{ width: 44, height: 44, background: "linear-gradient(135deg, #F97316, #ea580c)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 18, color: "#fff", flexShrink: 0 }}>K</div>
+              <div style={{ width: 44, height: 44, background: "linear-gradient(135deg, #F97316, #ea580c)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Bebas Neue', sans-serif", fontWeight: 800, fontSize: 18, color: "#fff", flexShrink: 0 }}>K</div>
               <div>
-                <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: 15, color: "#fff" }}>Keshav</div>
-                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.5)" }}>Founder, ApplyKaro · VIT Vellore</div>
+                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontWeight: 700, fontSize: 15, color: "#fff" }}>Keshav</div>
+                <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.5)" }}>Founder, ApplyKaro · VIT Vellore</div>
               </div>
             </div>
           </div>
@@ -450,8 +461,8 @@ function FAQ() {
       <div style={{ maxWidth: 720, margin: "0 auto" }}>
         <FadeIn>
           <div style={{ textAlign: "center", marginBottom: 52 }}>
-            <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 12, color: "#F97316", letterSpacing: "0.12em", textTransform: "uppercase" }}>FAQ</span>
-            <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "clamp(1.8rem, 4vw, 2.8rem)", color: "#fff", margin: "12px 0 8px", letterSpacing: "-0.01em" }}>Questions we get<br />every single day</h2>
+            <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: 12, color: "#F97316", letterSpacing: "0.12em", textTransform: "uppercase" }}>FAQ</span>
+            <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontWeight: 800, fontSize: "clamp(1.8rem, 4vw, 2.8rem)", color: "#fff", margin: "12px 0 8px", letterSpacing: "0.04em" }}>Questions we get<br />every single day</h2>
           </div>
         </FadeIn>
         <div>
@@ -460,11 +471,11 @@ function FAQ() {
               <div style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", overflow: "hidden" }}>
                 <button onClick={() => setOpenIdx(openIdx === i ? null : i)}
                   style={{ width: "100%", textAlign: "left", background: "none", border: "none", cursor: "pointer", padding: "22px 0", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16 }}>
-                  <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 600, fontSize: 16, color: "#fff", lineHeight: 1.4 }}>{faq.q}</span>
+                  <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 600, fontSize: 16, color: "#fff", lineHeight: 1.4 }}>{faq.q}</span>
                   <span style={{ color: "#F97316", fontSize: 22, flexShrink: 0, transform: openIdx === i ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.3s", display: "inline-block", lineHeight: 1 }}>+</span>
                 </button>
                 {openIdx === i && (
-                  <div style={{ padding: "0 0 22px", fontFamily: "'DM Sans', sans-serif", fontSize: 15, color: "rgba(255,255,255,0.6)", lineHeight: 1.75 }}>{faq.a}</div>
+                  <div style={{ padding: "0 0 22px", fontFamily: "'Outfit', sans-serif", fontSize: 15, color: "rgba(255,255,255,0.6)", lineHeight: 1.75 }}>{faq.a}</div>
                 )}
               </div>
             </FadeIn>
@@ -481,23 +492,23 @@ function CTA() {
       <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 600, height: 600, background: "radial-gradient(circle, rgba(249,115,22,0.1) 0%, transparent 70%)", borderRadius: "50%", filter: "blur(40px)", pointerEvents: "none" }} />
       <FadeIn>
         <div style={{ position: "relative", maxWidth: 600, margin: "0 auto" }}>
-          <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "#fff", margin: "0 0 12px", letterSpacing: "-0.01em", lineHeight: 1.1 }}>
+          <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "#fff", margin: "0 0 12px", letterSpacing: "0.04em", lineHeight: 1.1 }}>
             Your next interview call is<br /><span style={{ color: "#F97316" }}>25 applications away.</span>
           </h2>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 17, color: "rgba(255,255,255,0.55)", margin: "16px 0 40px", lineHeight: 1.7 }}>
+          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 17, color: "rgba(255,255,255,0.55)", margin: "16px 0 40px", lineHeight: 1.7 }}>
             Stop spending evenings on job portals. Let us handle the volume while you prep for the interview you're going to get.
           </p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
             <a href={WHATSAPP_URL} target="_blank" rel="noreferrer"
-              style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "#F97316", color: "#fff", padding: "16px 36px", borderRadius: 12, textDecoration: "none", fontWeight: 700, fontSize: 17, fontFamily: "'DM Sans', sans-serif", boxShadow: "0 4px 24px rgba(249,115,22,0.35)" }}>
+              style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "#F97316", color: "#fff", padding: "16px 36px", borderRadius: 12, textDecoration: "none", fontWeight: 700, fontSize: 17, fontFamily: "'Outfit', sans-serif", boxShadow: "0 4px 24px rgba(249,115,22,0.35)" }}>
               💬 Start on WhatsApp
             </a>
             <a href="#pricing"
-              style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "transparent", color: "#fff", padding: "16px 32px", borderRadius: 12, textDecoration: "none", fontWeight: 600, fontSize: 17, fontFamily: "'DM Sans', sans-serif", border: "1px solid rgba(255,255,255,0.18)" }}>
+              style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "transparent", color: "#fff", padding: "16px 32px", borderRadius: 12, textDecoration: "none", fontWeight: 600, fontSize: 17, fontFamily: "'Outfit', sans-serif", border: "1px solid rgba(255,255,255,0.18)" }}>
               View Pricing
             </a>
           </div>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.35)", marginTop: 20 }}>
+          <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.35)", marginTop: 20 }}>
             Pro-rata refund if placed early · Screenshot proof of every application · WhatsApp support
           </p>
         </div>
@@ -510,11 +521,19 @@ function Footer() {
   return (
     <footer style={{ borderTop: "1px solid rgba(255,255,255,0.07)", padding: "32px 1.5rem", textAlign: "center" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
-        <a href="#" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
-          <img src="/logo.png" alt="ApplyKaro" style={{ height: 30, width: "auto" }} />
+        <a href="#" style={{ display: "flex", alignItems: "center", gap: 8, textDecoration: "none" }}>
+          <div style={{ width: 28, height: 28, background: "#F97316", borderRadius: 7, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+              <path d="M5 15 L15 5" stroke="#fff" strokeWidth="2.2" strokeLinecap="round"/>
+              <path d="M8 5 H15 V12" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800, fontSize: 16, letterSpacing: "-0.03em" }}>
+            <span style={{ color: "#fff" }}>Apply</span><span style={{ color: "#F97316" }}>Karo</span>
+          </span>
         </a>
-        <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.35)" }}>Built in India, for India. © 2025 ApplyKaro.</span>
-        <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "#F97316", textDecoration: "none", fontWeight: 600 }}>💬 WhatsApp us</a>
+        <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.35)" }}>Built in India, for India. © 2025 ApplyKaro.</span>
+        <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" style={{ fontFamily: "'Outfit', sans-serif", fontSize: 13, color: "#F97316", textDecoration: "none", fontWeight: 600 }}>💬 WhatsApp us</a>
       </div>
     </footer>
   );
@@ -526,7 +545,7 @@ export default function App() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800&family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&family=Libre+Baskerville:ital,wght@1,400;1,700&display=swap');
         
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
