@@ -274,7 +274,7 @@ function VSSection() {
           </div>
         </FadeIn>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20 }}>
           {/* AI side */}
           <FadeIn delay={0.1}>
             <div style={{ background: "rgba(255,50,50,0.04)", border: "1px solid rgba(255,50,50,0.15)", borderRadius: 20, padding: "28px 24px" }}>
@@ -408,7 +408,7 @@ function Pricing() {
 function OurStory() {
   return (
     <section id="our-story" style={{ padding: "80px 1.5rem", background: "rgba(255,255,255,0.015)" }}>
-      <div style={{ maxWidth: 900, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
+      <div style={{ maxWidth: 900, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 40, alignItems: "center" }}>
         <FadeIn>
           <div>
             <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 12, color: "#F97316", letterSpacing: "0.12em", textTransform: "uppercase" }}>Our Story</span>
